@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"time"
 )
 
 type Film struct {
@@ -30,6 +31,7 @@ func main() {
 	}
 
 	h2 := func(w http.ResponseWriter, r *http.Request) {
+		time.Sleep(1 * time.Second)
 		title := r.PostFormValue("title")
 		director := r.PostFormValue("director")
 		htmlStr := fmt.Sprintf(
